@@ -1,271 +1,334 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>가계부 어플</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/f022b7ec42.js" crossorigin="anonymous"></script>
-</head>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/f022b7ec42.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <header>
-            <h1>
-                소비기록
-            </h1>
-            <!-- <img src="images/menu.png"> -->
-        </header>
-        <main>
-            <img src="images/wallet.png">
-            <h1>안녕? 현하야 git 어렵지???</h1>
-            <p>안녕하세요, <span id="user_name"></span>님!<br>
-                현재 잔액은 <span id="grand-total"></span>입니다.</p>
-            <div class="total_rate" id="total_rate">
-                <div class="total_plus" id="total_minus">들어온 돈<br><span id="plus"></span></div>
-                <div class="total_minus" id="total_minus">나간 돈<br><span id="minus"></span></div>
-            </div>
-        </main>
-        <section class="hisotry" id="hisotry">
-            <form>
-                <label><input type="radio" value="최신순" name=history" onclick="arrayForDate()">최신순</label>
-                <label><input type="radio" value="수입" name="history" onclick="arrayForIncome()">수입</label>
-                <label><input type="radio" value="지출" name="history" onclick="arrayForExpense()">지출</label>
-            </form>
-            <div id="history_content" class="history_content"></div>
-            <div class="create" id="create" onclick="createBtn()"><i class="fas fa-plus"></i><br>
-                새로운 내역을 추가하세요.</div>
-        </section>
-        <section class="new" id="new">
-            <h2>새로운 거래</h2>
-            <form>
-                <legend>날짜</legend>
-                <input type="date" id="date">
-                <legend>내용</legend>
-                <div class="btn" id="btn">
-                    <label><input type="radio" id="income" value="들어온 돈" name="content">+</label>
-                    <label><input type="radio" id="expense" value="나간 돈" name="content">-</label><br>
-                </div>
-                <input type="text" id="content" placeholder="내용을 입력하세요.">
-                <legend>금액</legend>
-                <input type="number" id="rate" min="10" placeholder="금액을 입력하세요."><br>
-                <input type="button" id="input_btn" value="입력하기" onclick="inputContent()">
-                <input type="button" id="close_btn" value="닫기" onclick="closeBtn()">
-            </form>
-        </section>
+      <header>
+        <h1>소비기록</h1>
+        <!-- <img src="images/menu.png"> -->
+      </header>
+      <main>
+        <img src="images/wallet.png" />
+        <p>
+          안녕하세요, <span id="user_name"></span>님!<br />
+          현재 잔액은 <span id="grand-total"></span>입니다.
+        </p>
+        <div class="total_rate" id="total_rate">
+          <div class="total_plus" id="total_minus">
+            들어온 돈<br /><span id="plus"></span>
+          </div>
+          <div class="total_minus" id="total_minus">
+            나간 돈<br /><span id="minus"></span>
+          </div>
+        </div>
+      </main>
+      <section class="hisotry" id="hisotry">
+        <form>
+          <label
+            ><input type="radio" value="최신순" name=history"
+            onclick="arrayForDate()">최신순</label
+          >
+          <label
+            ><input
+              type="radio"
+              value="수입"
+              name="history"
+              onclick="arrayForIncome()"
+            />수입</label
+          >
+          <label
+            ><input
+              type="radio"
+              value="지출"
+              name="history"
+              onclick="arrayForExpense()"
+            />지출</label
+          >
+        </form>
+        <div id="history_content" class="history_content"></div>
+        <div id="pagingCount"></div>
+        <div class="create" id="create" onclick="createBtn()">
+          <i class="fas fa-plus"></i><br />
+          새로운 내역을 추가하세요.
+        </div>
+      </section>
+      <section class="new" id="new">
+        <h2>새로운 거래</h2>
+        <form>
+          <legend>날짜</legend>
+          <input type="date" id="date" />
+          <legend>내용</legend>
+          <div class="btn" id="btn">
+            <label
+              ><input
+                type="radio"
+                id="income"
+                value="들어온 돈"
+                name="content"
+              />+</label
+            >
+            <label
+              ><input
+                type="radio"
+                id="expense"
+                value="나간 돈"
+                name="content"
+              />-</label
+            ><br />
+          </div>
+          <input type="text" id="content" placeholder="내용을 입력하세요." />
+          <legend>금액</legend>
+          <input
+            type="number"
+            id="rate"
+            min="10"
+            placeholder="금액을 입력하세요."
+          /><br />
+          <input
+            type="button"
+            id="input_btn"
+            value="입력하기"
+            onclick="inputContent()"
+          />
+          <input
+            type="button"
+            id="close_btn"
+            value="닫기"
+            onclick="closeBtn()"
+          />
+        </form>
+      </section>
     </div>
     <script>
-        // 변수 선언 모음
-        const date = document.getElementById("date");
-        const content = document.getElementById("content");
-        const rate = document.getElementById("rate");
-        const historyContent = document.getElementById("history_content");
-        const newInput = document.getElementById("new");
-        const inputBtn = document.getElementById("input_btn");
-        const grandTotal = document.getElementById("grand-total")
-        const plus = document.getElementById("plus")
-        const minus = document.getElementById("minus")
-        
-        
+      // 변수 선언 모음
+      const date = document.getElementById("date");
+      const content = document.getElementById("content");
+      const rate = document.getElementById("rate");
+      const historyContent = document.getElementById("history_content");
+      const newInput = document.getElementById("new");
+      const inputBtn = document.getElementById("input_btn");
+      const grandTotal = document.getElementById("grand-total");
+      const plus = document.getElementById("plus");
+      const minus = document.getElementById("minus");
+      const pagingCount = document.getElementById("pagingCount");
 
-        //로컬스토리지 저장소
-        const rateHistory = (localStorage.getItem("history2"));
-        let historyObject = JSON.parse(rateHistory);
-        if (rateHistory === null) historyObject = [];
-        // console.log(rateHistory)    
-        //console.log(historyObject[i].rate)
+      //로컬스토리지 저장소
+      const rateHistory = localStorage.getItem("history2");
+      let historyObject = JSON.parse(rateHistory);
+      if (rateHistory === null) historyObject = [];
+      // console.log(rateHistory)
+      //console.log(historyObject[i].rate)
 
+      newHistory(); //내용출력
 
-            newHistory();  //내용출력
-            
-        //새로운 내역 받아 저장하기
-        function inputContent() {
-            const radio = document.getElementsByName("content");
-            const radioSelect = radio[0].checked === true ? '+' : '-';
-            const myHistory = {
-                date: date.value,
-                content: content.value,
-                rate: rate.value,
-                radio: radioSelect,
-            };
-
-            
-            historyObject.push(myHistory);
-            localStorage.setItem("history2", JSON.stringify(historyObject));
-            content.value = "";
-            rate.value = "";
-
-            newHistory();
-            closeBtn();
-            console.log(radioSelect);
-            console.log(myHistory);
-            console.log(date.value)
+      //새로운 내역 받아 저장하기
+      function inputContent() {
+        const radio = document.getElementsByName("content");
+        const radioSelect = radio[0].checked === true ? "+" : "-";
+        const myHistory = {
+          date: date.value,
+          content: content.value,
+          rate: rate.value,
+          radio: radioSelect,
         };
-        //내역 출력하기
-        function newHistory() {
-            let list = "";
-            historyObject.forEach((item, index) => {
-                const userate = (parseInt(item.rate));
-                list += `
+
+        historyObject.push(myHistory);
+        localStorage.setItem("history2", JSON.stringify(historyObject));
+        content.value = "";
+        rate.value = "";
+
+        newHistory();
+        closeBtn();
+        console.log(radioSelect);
+        console.log(myHistory);
+        console.log(date.value);
+      }
+      //내역 출력하기
+      function newHistory(currentNum) {
+        //console.log(currentNum);
+        //historyObject.index : 0,1,2,3,4,5,6,7
+        //currentNum이 0이면 historyObject.index가 0,1,2 랜더링 .slice(0, 3)
+        //currentNum이 1이면 historyObject.index가 3,4,5 랜더링 .slice(3, 6)
+        //currentNum이 2이면 historyObject.index가 6,7 랜더링   .slice(6, 9)
+        //흠..
+        //historyObject.length
+        //console.log("historyObject.length: ", historyObject.length);
+        const newArr = historyObject.slice(currentNum * 3, currentNum * 3 + 3); 
+        console.log(newArr);
+        let list = "";
+        newArr.forEach((item, index) => {
+          const userate = parseInt(item.rate);
+          list += `
             <div id="history-list">
                 <h3>${item.date}</h3>
                 <p id="one">${item.content}<p>
-                <p id="two">${item.radio+userate.toLocaleString()}<p>
+                <p id="two">${item.radio + userate.toLocaleString()}<p>
                 <span id="del-btn" onclick="remove()">삭제<span>
             </div>
             `;
-            });
-            historyContent.innerHTML = list;
-            totalSet()
+        });
+        historyContent.innerHTML = list;
+        totalSet();
+        paging();
+      }
+      //페이징 
+      function paging() {
+        const onePageCount = 3; //한페이지에 보여 줄 개수
+        totalPate = Math.ceil(historyObject.length / onePageCount); // 3
+        let countList = "";
+        for (i = 0; i < totalPate; i++) {
+          countList += `<div onclick="newHistory(${i})">[${i + 1}]</div>`;
         }
-        //정렬최신날짜순
-        function arrayForDate() {
-            let list = "";
-            historyObject.forEach((item, index) => {
-                const userate = (parseInt(item.rate));
-                const forDate = historyObject.sort(function (a, b) {
-                return a.date > b.date ? -1 : a.date < b.date ? 1 : 0;
-            });
-                list += `
+        pagingCount.innerHTML = countList;
+      }
+
+      //정렬최신날짜순
+      function arrayForDate() {
+        let list = "";
+        historyObject.forEach((item, index) => {
+          const userate = parseInt(item.rate);
+          const forDate = historyObject.sort(function (a, b) {
+            return a.date > b.date ? -1 : a.date < b.date ? 1 : 0;
+          });
+          list += `
             <div id="history-list">
                 <h3>${item.date}</h3>
                 <p id="one">${item.content}<p>
-                <p id="two">${item.radio+userate.toLocaleString()}<p>
+                <p id="two">${item.radio + userate.toLocaleString()}<p>
                 <span id="del-btn" onclick="remove()">삭제<span>
             </div>
             `;
-            });
-            historyContent.innerHTML = list;
-            totalSet()
-        }
+        });
+        historyContent.innerHTML = list;
+        totalSet();
+      }
 
-        //정렬 수입만
-        function arrayForIncome() {
+      //정렬 수입만
+      function arrayForIncome() {
+        let list = "";
 
-            let list = "";
-
-            historyObject.forEach((item, index) => {
-                const userate = (parseInt(item.rate)); 
-                if(item.radio == "+")
-                {list += `
+        historyObject.forEach((item, index) => {
+          const userate = parseInt(item.rate);
+          if (item.radio == "+") {
+            list += `
             <div id="history-list">
                 <h3>${item.date}</h3>
                 <p id="one">${item.content}<p>
-                <p id="two">${item.radio+userate.toLocaleString()}<p>
+                <p id="two">${item.radio + userate.toLocaleString()}<p>
                 <span id="del-btn" onclick="remove()">삭제<span>
             </div>
-            `;}
-            });
+            `;
+          }
+        });
 
-            historyContent.innerHTML = list;
-            totalSet()
-        }
-        //정렬 지출만
-        function arrayForExpense() {
+        historyContent.innerHTML = list;
+        totalSet();
+      }
+      //정렬 지출만
+      function arrayForExpense() {
+        let list = "";
 
-            let list = "";
-
-            historyObject.forEach((item, index) => {
-                const userate = (parseInt(item.rate)); 
-                if(item.radio == "-")
-                {list += `
+        historyObject.forEach((item, index) => {
+          const userate = parseInt(item.rate);
+          if (item.radio == "-") {
+            list += `
             <div id="history-list">
                 <h3>${item.date}</h3>
                 <p id="one">${item.content}<p>
-                <p id="two">${item.radio+userate.toLocaleString()}<p>
+                <p id="two">${item.radio + userate.toLocaleString()}<p>
                 <span id="del-btn" onclick="remove()">삭제<span>
             </div>
-            `;}
-            });
+            `;
+          }
+        });
 
-            historyContent.innerHTML = list;
-            totalSet()
-        }
-        
+        historyContent.innerHTML = list;
+        totalSet();
+      }
 
-        
-    
-        function totalSet() {
-            // grandtotal 금액 구하기
-            //map사용
-            const maaap = historyObject.map((value, index) => {
-                return parseInt(value.radio + value.rate);
-            });
-            //reduce사용
-            const reduceSum = maaap.reduce((acc, current) => {
-                return acc + current;
-            }, 0);
-            // console.log(maaap);
-            grandTotal.innerHTML = reduceSum.toLocaleString();
-            
+      function totalSet() {
+        // grandtotal 금액 구하기
+        //map사용
+        const maaap = historyObject.map((value, index) => {
+          return parseInt(value.radio + value.rate);
+        });
+        //reduce사용
+        const reduceSum = maaap.reduce((acc, current) => {
+          return acc + current;
+        }, 0);
+        // console.log(maaap);
+        grandTotal.innerHTML = reduceSum.toLocaleString();
 
-            // 들어온돈나간돈 total 금액 구하기
-            //filter사용
-            //reduce사용
-            const filterpluseSum =  maaap
-                .filter((value) => value > 0)
-                .reduce((acc, current) => acc + current, 0);
-            // console.log(filterpluseSum)
-            const filterminusSum =  maaap
-                .filter((value) =>  value < 0 )
-                .reduce((acc, current) =>acc + current ,0)
-            // console.log(filterminusSum)
-            minus.innerHTML = filterminusSum.toLocaleString();
-            plus.innerHTML = `+${filterpluseSum.toLocaleString()}`;
-        }
+        // 들어온돈나간돈 total 금액 구하기
+        //filter사용
+        //reduce사용
+        const filterpluseSum = maaap
+          .filter((value) => value > 0)
+          .reduce((acc, current) => acc + current, 0);
+        // console.log(filterpluseSum)
+        const filterminusSum = maaap
+          .filter((value) => value < 0)
+          .reduce((acc, current) => acc + current, 0);
+        // console.log(filterminusSum)
+        minus.innerHTML = filterminusSum.toLocaleString();
+        plus.innerHTML = `+${filterpluseSum.toLocaleString()}`;
+      }
 
+      //삭제하기
+      function remove(index) {
+        historyObject.splice(index, 1);
+        localStorage.setItem("history2", JSON.stringify(historyObject));
 
-        //삭제하기
-        function remove(index) {
-            historyObject.splice(index,1);
-            localStorage.setItem("history2", JSON.stringify(historyObject));
-            
-            newHistory();
-        }
+        newHistory();
+      }
 
-        // 새로운 내역을 추가하세요 버튼 클릭 시 새로운 거래 입력창 오픈
-        function createBtn() {
-            const newInput = document.getElementById("new");
-            newInput.style.display = "block";
-        }
-        // 닫기 버튼 클릭 시 창 닫기
-        function closeBtn() {
-            const newInput = document.getElementById("new");
-            newInput.style.display = "none";
-        }
+      // 새로운 내역을 추가하세요 버튼 클릭 시 새로운 거래 입력창 오픈
+      function createBtn() {
+        const newInput = document.getElementById("new");
+        newInput.style.display = "block";
+      }
+      // 닫기 버튼 클릭 시 창 닫기
+      function closeBtn() {
+        const newInput = document.getElementById("new");
+        newInput.style.display = "none";
+      }
 
+      //페이징
 
-        //페이징
-        
-        // function paging(){
-    
-        const listAll = document.getElementById("history-list")
-        let pagingAll = Math.ceil (historyContent.childElementCount/5) 
-        
-        // console.log(historyContent);
-        // console.log(pagingAll);
-        // console.log(historyContent.childElementCount);
+      // function paging(){
 
+      const listAll = document.getElementById("history-list");
+      let pagingAll = Math.ceil(historyContent.childElementCount / 5);
 
+      // console.log(historyContent);
+      // console.log(pagingAll);
+      // console.log(historyContent.childElementCount);
 
-
-        //let 총페이지수 = Math.ceil (총개수 / 한개의화면에서보여줄개수)
-        //let 나머지 = 지금내위치 % 하단부개수
-        //let 현재나의페이지 = 2
-        //let 현재나의페이지나누기5의나머지 = 2
-        //let 하단부첫째숫자 = 현재나의페이지 - 현재나의페이지나누기5의나머지 +1
-        //let 페이지하단 = 2
-        //let 하단부마지막숫자 =현재나의페이지 - 현재나의페이지나누기5의나머지 + 페이지하단
-        //consloe.log(하단부첫째숫자)
-        //consloe.log(하단부마지막숫자)
-        //if (하단부마지막숫자 > 총페이지수) {
-        //    하단부마지막숫자 = 총페이지수
-        //}
-        // }
-        // paging()
+      //let 총페이지수 = Math.ceil (총개수 / 한개의화면에서보여줄개수)
+      //let 나머지 = 지금내위치 % 하단부개수
+      //let 현재나의페이지 = 2
+      //let 현재나의페이지나누기5의나머지 = 2
+      //let 하단부첫째숫자 = 현재나의페이지 - 현재나의페이지나누기5의나머지 +1
+      //let 페이지하단 = 2
+      //let 하단부마지막숫자 =현재나의페이지 - 현재나의페이지나누기5의나머지 + 페이지하단
+      //consloe.log(하단부첫째숫자)
+      //consloe.log(하단부마지막숫자)
+      //if (하단부마지막숫자 > 총페이지수) {
+      //    하단부마지막숫자 = 총페이지수
+      //}
+      // }
+      // paging()
     </script>
-</body>
-
+  </body>
 </html>
