@@ -1,53 +1,53 @@
-*{
-    margin: 0 auto;
-    padding: 0;
-    box-sizing: border-box;
-    font-size: 16px;
-    font-weight: normal;
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: normal;
 }
-.container{
-    width: 500px;
-    background-color: rgba(194, 187, 187, 0.397);
-    padding: 50px 20px;
-    border-radius: 30px;
+.container {
+  width: 500px;
+  background-color: rgba(194, 187, 187, 0.397);
+  padding: 50px 20px;
+  border-radius: 30px;
 }
 /* -------------------------------------------------------------header */
-header{
-    position:relative;
-    justify-content: space-around;
-    border-bottom: 1px solid gray;
-    margin-top: 10px;
-    padding-bottom: 10px;
+header {
+  position: relative;
+  justify-content: space-around;
+  border-bottom: 1px solid gray;
+  margin-top: 10px;
+  padding-bottom: 10px;
 }
 header > h1 {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
 }
 header > img {
-    width: 25px;
-    position: absolute;
-    top: 0;
-    left: 90%;
+  width: 25px;
+  position: absolute;
+  top: 0;
+  left: 90%;
 }
 /* -------------------------------------------------------------main */
 main {
-    position: relative;
+  position: relative;
 }
 main > img {
-    width: 200px;
-    display: block;
-    margin-top: 40px;
-    margin-bottom: 30px;
+  width: 200px;
+  display: block;
+  margin-top: 40px;
+  margin-bottom: 30px;
 }
 main > p {
-    text-align: center;
-    margin-bottom: 50px;
+  text-align: center;
+  margin-bottom: 50px;
 }
 .total_rate {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-bottom: 50px;
 }
 /* .total_plus,
 .total_minus {
@@ -59,136 +59,138 @@ main > p {
 /* -------------------------------------------------------------section history*/
 
 .hisotry > form {
-    display: grid;
-    grid-template-columns: 17% 10% 10%;
-    margin-bottom: 20px;
-    margin-left: 20px;
+  display: grid;
+  grid-template-columns: 17% 10% 10%;
+  margin-bottom: 20px;
+  margin-left: 20px;
 }
-input[type=radio] {
-    display: none;
+input[type="radio"] {
+  display: none;
 }
 .history_content {
-    margin: 10px auto;
+  margin: 10px auto;
 }
 .hisotry > .create {
-    width: 450px;
-    text-align: center;
-    margin-top: 20px;
-    border: 1px solid gray;
-    border-radius: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    cursor: pointer;
+  width: 450px;
+  text-align: center;
+  margin-top: 20px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  cursor: pointer;
 }
-.hisotry > .create:hover{
-    background-color: rgba(204, 200, 200, 0.425);
+.hisotry > .create:hover {
+  background-color: rgba(204, 200, 200, 0.425);
 }
 
-#history-list{
-    width: 450px;
-    height: 70px;
-    margin: auto;
-    margin-top: 10px;
-    padding: 10px;
-    border: 1px solid gray;
-    border-radius: 10px;
-    position: relative;
-    
+#history-list {
+  width: 450px;
+  height: 70px;
+  margin: auto;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  position: relative;
 }
 #history-list > #one {
-    position: absolute;
-    left: 20px;
+  position: absolute;
+  left: 20px;
 }
 #history-list > #two {
-    position: absolute;
-    right: 20px;
+  position: absolute;
+  right: 20px;
 }
-#history-list:hover{
-    transform: translateY(-5px);
-    transition: 2s;
+#history-list:hover {
+  transform: translateY(-5px);
+  transition: 2s;
 }
-#del-btn{
-    cursor: pointer;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    right: 0;
-    transform: translate(-7px, 7px);
+#del-btn {
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  right: 0;
+  transform: translate(-7px, 7px);
 }
-#del-btn:hover{
-    color: red;
-    text-decoration: underline;
+#del-btn:hover {
+  color: red;
+  text-decoration: underline;
 }
 /* -------------------------------------------------------------section new*/
-.new{
-    display: none;
+.new {
+  display: none;
 }
 .new > h2 {
-    font-size: 20px;
-    font-weight: bold;
-    text-align: left;
-    margin-top: 40px;
-    margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
-input[type=date],
-input[type=text],
-input[type=button],
-input[type=number],
-button
- {
-    border: 1px solid gray;
-    border-radius: 5px;
-    padding: 10px;
-    width: 450px;
-    /* margin : 10px */
+input[type="date"],
+input[type="text"],
+input[type="button"],
+input[type="number"],
+button {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px;
+  width: 450px;
+  /* margin : 10px */
 }
 legend {
-    margin: 10px;
+  margin: 10px;
 }
-input[type=button]{
-    margin-top: 10px;
-    cursor: pointer;
+input[type="button"] {
+  margin-top: 10px;
+  cursor: pointer;
 }
 
 label {
-    display: inline-block;
-    /* border: 1px solid gray; */
-    padding: 0;
-    border-radius: 10px;
-    margin: 0;
-    cursor: pointer;
+  display: inline-block;
+  /* border: 1px solid gray; */
+  padding: 0;
+  border-radius: 10px;
+  margin: 0;
+  cursor: pointer;
 }
 label:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
-.btn{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    /* margin-bottom: 10px; */
-    text-align: center;
+.btn {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  /* margin-bottom: 10px; */
+  text-align: center;
 }
-.btn > label{
-    width: 200px;
-    border: 1px solid gray;
-    border-radius: 5px;
-    padding-top: 5px;
-    padding-bottom: 10px;
-    margin-left: 10px;
-    font-size: 30px;
+.btn > label {
+  width: 200px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  margin-left: 10px;
+  font-size: 30px;
 }
-button:hover{
-    text-decoration: underline;
+button:hover {
+  text-decoration: underline;
 }
 input[id="income"],
-input[id="expense"]:checked + .btn>label{ 
-    background-color: rgb(182, 49, 49);
-    
+input[id="expense"]:checked + .btn > label {
+  background-color: rgb(182, 49, 49);
 }
-.btn > label:active{
-    box-shadow: 0px 0px 2px black;
-    border: blueviolet solid 2px;
+.btn > label:active {
+  box-shadow: 0px 0px 2px black;
+  border: blueviolet solid 2px;
 }
-    
-
+/* -------------------------------------------------------------paging*/
+#pagingCount {
+  text-align: center;
+}
+#page {
+  display: inline-block;
+}
