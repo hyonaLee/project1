@@ -1,3 +1,16 @@
-# project1
-my first toy project.
-wallet app.
+
+# wallet app.
+ 
+## 기간.
+ 7월29일 - 8월1일
+
+## 개요.
+날씨에 따라 생각나는 음식을 추천해 주는 기능에 위치서비스를 더하여 현재 위치나 원하는 위치에 관한 맛집 정보를 얻을 수 있다.
+
+## 개발환경.
+* HTML, CSS
+* Vanilla JavaScript
+
+## 주요기능.
+* Local Storage를 이용하여 데이터 저장 (내역 생성 및 삭제)
+* 항목별 정렬 기능
