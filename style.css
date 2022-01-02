@@ -68,9 +68,6 @@ main > p {
 input[type="radio"] {
   display: none;
 }
-.history_content {
-  margin-bottom: 10px;
-}
 .hisotry > .create {
   width: 800px;
   text-align: center;
@@ -212,7 +209,18 @@ button:hover {
     padding: 10px;
     width: 450px;
   }
-
+  .history {
+    width: 450px;
+    margin: 0;
+  }
+  .history_content {
+    margin: 0;
+    width: 450px;
+  }
+  #pagingCount{
+    margin: 0;
+    width: 450px;
+  }
   #history-list {
     width: 450px;
     height: 70px;
@@ -223,11 +231,13 @@ button:hover {
   .hisotry > .create {
     width: 450px;
   }
-
   .new > h2 {
     font-size: 20px;
   }
-
+  .hisotry > form {
+    display: grid;
+    grid-template-columns: 55px 40px 40px;
+  }
   #history-list > #one {
     margin: 0;
   }
@@ -259,7 +269,7 @@ button:hover {
 }
 
 #page {
-  width: 800px;
   text-align: center;
   cursor: pointer;
+  margin-bottom: 20px;
 }
