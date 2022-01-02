@@ -57,7 +57,7 @@ main > p {
 
 .hisotry {
   position: relative;
-  width: 450px;
+  width: 800px;
   margin: auto;
 }
 .hisotry > form {
@@ -259,7 +259,7 @@ button:hover {
 }
 
 #page {
-  width: 450px;
+  width: 800px;
   text-align: center;
   cursor: pointer;
 }
