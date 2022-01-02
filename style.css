@@ -8,16 +8,43 @@
 .container {
   width: 100%;
   background-color: rgba(194, 187, 187, 0.397);
-  padding: 50px 20px;
-  /* border-radius: 30px; */
+  padding: 5% 10%;
+}
+label {
+  cursor: pointer;
+}
+label:hover {
+  text-decoration: underline;
+}
+input[type="date"],
+input[type="text"],
+input[type="button"],
+input[type="number"],
+button {
+  display: inline-block;
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 5%;
+  width: 100%;
+}
+input[type="button"] {
+  cursor: pointer;
+}
+input[type="button"]:hover {
+background-color: rgba(204, 200, 200, 0.425);
+}
+input[type="radio"] {
+  display: none;
+}
+legend {
+  margin-top: 2%;
+  margin-bottom: 1%;
 }
 /* -------------------------------------------------------------header */
 header {
   position: relative;
   justify-content: space-around;
   border-bottom: 1px solid gray;
-  margin-top: 10px;
-  margin-bottom: 30px;
   padding-bottom: 50px;
 }
 header > h1 {
@@ -25,157 +52,114 @@ header > h1 {
   font-weight: bold;
   text-align: center;
 }
-header > img {
-  width: 25px;
-  position: absolute;
-  left: 90%;
-}
 /* -------------------------------------------------------------main */
 main {
   position: relative;
 }
-main > img {
-  width: 400px;
+main img {
+  width: 300px;
   display: block;
-  margin-top: 40px;
-  margin-bottom: 30px;
+  padding-top: 10%;
+  padding-bottom: 5%;
   margin: auto;
 }
 main > p {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 5%;
 }
 .total_rate {
   display: grid;
   grid-template-columns: 50% 50%;
   text-align: center;
-  width: 800px;
-  margin-bottom: 100px;
+  margin-bottom: 10%;
 }
 
 /* -------------------------------------------------------------section history*/
 
 .hisotry {
   position: relative;
-  width: 800px;
-  margin: auto;
 }
 .hisotry > form {
   display: grid;
-  grid-template-columns: 15% 10% 10%;
-  margin-bottom: 20px;
-}
-input[type="radio"] {
-  display: none;
+  grid-template-columns: 16% 10% 10%;
+  padding-bottom: 2%;
+  margin: 0;
 }
 .hisotry > .create {
-  width: 800px;
+  width: 100%;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 5%;
   border: 1px solid gray;
   border-radius: 10px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 5%;
+  padding-bottom: 5%;
   cursor: pointer;
 }
 .hisotry > .create:hover {
   background-color: rgba(204, 200, 200, 0.425);
 }
-
 #history-list {
-  width: 800px;
-  height: 230px;
-  margin-top: 10px;
-  padding: 0px 20px;
+  width: 100%;
+  height: 180px;
+  margin-top: 2%;
+  padding: 2%;
   border: 1px solid gray;
   border-radius: 10px;
   position: relative;
 }
 #history-list > #one {
   position: absolute;
-  left: 20px;
+  left: 3%;
 }
 #history-list > #two {
   position: absolute;
-  right: 20px;
+  right: 3%;
 }
 #history-list:hover {
   transform: translateY(-5px);
-  transition: 2s;
+  transition: 1s;
 }
 #del-btn {
   font-size: 25px;
   cursor: pointer;
   position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 0;
-  right: 0;
-  transform: translate(-7px, 7px);
+  top: 3%;
+  right: 3%;
 }
 #del-btn:hover {
   color: red;
   text-decoration: underline;
 }
+#pagingCount{
+  text-align: center;
+}
+#page {
+  display: inline-block;
+  cursor: pointer;
+}
+
 /* -------------------------------------------------------------section new*/
 .new {
   position: relative;
-  width: 800px;
   display: none;
-  margin: auto;
 }
 .new > h2 {
   font-size: 20px;
   font-weight: bold;
   text-align: left;
-  margin-top: 40px;
-  margin-bottom: 20px;
-}
-input[type="date"],
-input[type="text"],
-input[type="button"],
-input[type="number"],
-button {
-  border: 1px solid gray;
-  border-radius: 5px;
-  padding: 30px;
-  width: 800px;
-}
-legend {
-  margin: 10px;
-}
-input[type="button"] {
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-label {
-  display: inline-block;
-  padding: 0;
-  border-radius: 10px;
-  cursor: pointer;
-}
-label:hover {
-  text-decoration: underline;
+  margin: 2% 0;
 }
 .btn {
-  width: 800px;
   display: grid;
   grid-template-columns: 50% 50%;
-  margin: auto;
   text-align: center;
 }
 .btn > label {
   width: 100%;
   border: 1px solid gray;
   border-radius: 5px;
-  padding-top: 5px;
-  padding-bottom: 10px;
   font-size: 30px;
-}
-button:hover {
-  text-decoration: underline;
+  padding: 5%;
 }
 
 /* -------------------------------------------------------------반응형*/
@@ -186,51 +170,14 @@ button:hover {
   }
   .container {
     width: 100%;
-    padding: 50px 20px;
+    padding: 5% 10%;
     border-radius: 30px;
   }
-
   header > h1 {
     font-size: 24px;
   }
-
   main > img {
     width: 200px;
-    display: block;
-    margin-top: 40px;
-    margin-bottom: 30px;
-  }
-
-  input[type="date"],
-  input[type="text"],
-  input[type="button"],
-  input[type="number"],
-  button {
-    padding: 10px;
-    width: 450px;
-  }
-  .history {
-    width: 450px;
-    margin: 0;
-  }
-  .history_content {
-    margin: 0;
-    width: 450px;
-  }
-  #pagingCount{
-    margin: 0;
-    width: 450px;
-    text-align: center;
-  }
-  #history-list {
-    width: 450px;
-    height: 70px;
-    margin-bottom: 10px;
-    padding: 10px;
-  }
-
-  .hisotry > .create {
-    width: 450px;
   }
   .new > h2 {
     font-size: 20px;
@@ -239,38 +186,10 @@ button:hover {
     display: grid;
     grid-template-columns: 55px 40px 40px;
   }
-  #history-list > #one {
-    margin: 0;
-  }
-  #history-list > #two {
-    position: absolute;
-    right: 20px;
-    margin: 0;
-  }
-
-  #history-list > h3 {
-    margin: 0;
-  }
-
-  .hisotry > .create {
-    margin: 0;
-  }
-  .total_rate {
-    width: 450px;
-  }
-
-  .btn {
-    width: 450px;
-    margin: 0;
-  }
-
   #del-btn {
     font-size: 15px;
   }
-}
-
-#page {
-  display: inline-block;
-  cursor: pointer;
-  margin-bottom: 20px;
+  #history-list {
+    height: 80px;
+  }
 }
