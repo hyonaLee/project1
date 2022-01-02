@@ -69,7 +69,7 @@ input[type="radio"] {
   display: none;
 }
 .history_content {
-  margin: 10px auto;
+  margin-bottom: 10px;
 }
 .hisotry > .create {
   width: 800px;
