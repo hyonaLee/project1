@@ -58,16 +58,7 @@
         totalSet();
         paging();
       }
-      //페이징 
-      function paging() {
-        const onePageCount = 3; //한페이지에 보여 줄 개수
-        totalPate = Math.ceil(historyObject.length / onePageCount); // 3
-        let countList = "";
-        for (i = 0; i < totalPate; i++) {
-          countList += `<div id="page" onclick="newHistory(${i})">[${i + 1}]</div>`;
-        }
-        pagingCount.innerHTML = countList;
-      }
+
 
       //정렬최신날짜순
       function arrayForDate() {
@@ -132,7 +123,16 @@
         historyContent.innerHTML = list;
         totalSet();
       }
-
+      //페이징 
+      function paging() {
+        const onePageCount = 3; //한페이지에 보여 줄 개수
+        totalPate = Math.ceil(historyObject.length / onePageCount); // 3
+        let countList = "";
+        for (i = 0; i < totalPate; i++) {
+          countList += `<div id="page" onclick="newHistory(${i})">[${i + 1}]</div>`;
+        }
+        pagingCount.innerHTML = countList;
+      }
       function totalSet() {
         // grandtotal 금액 구하기
         //map사용

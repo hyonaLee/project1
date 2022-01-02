@@ -1,15 +1,15 @@
 * {
-  margin: 0 auto;
+  margin: auto;
   padding: 0;
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 36px;
   font-weight: normal;
 }
 .container {
-  width: 500px;
+  width: 100%;
   background-color: rgba(194, 187, 187, 0.397);
   padding: 50px 20px;
-  border-radius: 30px;
+  /* border-radius: 30px; */
 }
 /* -------------------------------------------------------------header */
 header {
@@ -17,17 +17,17 @@ header {
   justify-content: space-around;
   border-bottom: 1px solid gray;
   margin-top: 10px;
-  padding-bottom: 10px;
+  margin-bottom: 30px;
+  padding-bottom: 50px;
 }
 header > h1 {
-  font-size: 24px;
+  font-size: 40px;
   font-weight: bold;
   text-align: center;
 }
 header > img {
   width: 25px;
   position: absolute;
-  top: 0;
   left: 90%;
 }
 /* -------------------------------------------------------------main */
@@ -35,10 +35,11 @@ main {
   position: relative;
 }
 main > img {
-  width: 200px;
+  width: 400px;
   display: block;
   margin-top: 40px;
   margin-bottom: 30px;
+  margin: auto;
 }
 main > p {
   text-align: center;
@@ -47,22 +48,22 @@ main > p {
 .total_rate {
   display: grid;
   grid-template-columns: 50% 50%;
-  margin-bottom: 50px;
+  text-align: center;
+  width: 800px;
+  margin-bottom: 100px;
 }
-/* .total_plus,
-.total_minus {
-    border: 1px solid gray;
-    border-radius: 10px;
-    padding: 30px;
-} */
 
 /* -------------------------------------------------------------section history*/
 
+.hisotry {
+  position: relative;
+  width: 450px;
+  margin: auto;
+}
 .hisotry > form {
   display: grid;
-  grid-template-columns: 17% 10% 10%;
+  grid-template-columns: 15% 10% 10%;
   margin-bottom: 20px;
-  margin-left: 20px;
 }
 input[type="radio"] {
   display: none;
@@ -71,7 +72,7 @@ input[type="radio"] {
   margin: 10px auto;
 }
 .hisotry > .create {
-  width: 450px;
+  width: 800px;
   text-align: center;
   margin-top: 20px;
   border: 1px solid gray;
@@ -85,11 +86,10 @@ input[type="radio"] {
 }
 
 #history-list {
-  width: 450px;
-  height: 70px;
-  margin: auto;
+  width: 800px;
+  height: 230px;
   margin-top: 10px;
-  padding: 10px;
+  padding: 0px 20px;
   border: 1px solid gray;
   border-radius: 10px;
   position: relative;
@@ -107,6 +107,7 @@ input[type="radio"] {
   transition: 2s;
 }
 #del-btn {
+  font-size: 25px;
   cursor: pointer;
   position: absolute;
   display: flex;
@@ -122,7 +123,10 @@ input[type="radio"] {
 }
 /* -------------------------------------------------------------section new*/
 .new {
+  position: relative;
+  width: 800px;
   display: none;
+  margin: auto;
 }
 .new > h2 {
   font-size: 20px;
@@ -138,9 +142,8 @@ input[type="number"],
 button {
   border: 1px solid gray;
   border-radius: 5px;
-  padding: 10px;
-  width: 450px;
-  /* margin : 10px */
+  padding: 30px;
+  width: 800px;
 }
 legend {
   margin: 10px;
@@ -152,45 +155,110 @@ input[type="button"] {
 
 label {
   display: inline-block;
-  /* border: 1px solid gray; */
   padding: 0;
   border-radius: 10px;
-  margin: 0;
   cursor: pointer;
 }
 label:hover {
   text-decoration: underline;
 }
 .btn {
+  width: 800px;
   display: grid;
   grid-template-columns: 50% 50%;
-  /* margin-bottom: 10px; */
+  margin: auto;
   text-align: center;
 }
 .btn > label {
-  width: 200px;
+  width: 100%;
   border: 1px solid gray;
   border-radius: 5px;
   padding-top: 5px;
   padding-bottom: 10px;
-  margin-left: 10px;
   font-size: 30px;
 }
 button:hover {
   text-decoration: underline;
 }
-input[id="income"],
-input[id="expense"]:checked + .btn > label {
-  background-color: rgb(182, 49, 49);
+
+/* -------------------------------------------------------------반응형*/
+
+@media (max-width: 900px) {
+  * {
+    font-size: 16px;
+  }
+  .container {
+    width: 500px;
+    padding: 50px 20px;
+    border-radius: 30px;
+  }
+
+  header > h1 {
+    font-size: 24px;
+  }
+
+  main > img {
+    width: 200px;
+    display: block;
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
+  input[type="date"],
+  input[type="text"],
+  input[type="button"],
+  input[type="number"],
+  button {
+    padding: 10px;
+    width: 450px;
+  }
+
+  #history-list {
+    width: 450px;
+    height: 70px;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+
+  .hisotry > .create {
+    width: 450px;
+  }
+
+  .new > h2 {
+    font-size: 20px;
+  }
+
+  #history-list > #one {
+    margin: 0;
+  }
+  #history-list > #two {
+    position: absolute;
+    right: 20px;
+    margin: 0;
+  }
+
+  #history-list > h3 {
+    margin: 0;
+  }
+
+  .hisotry > .create {
+    margin: 0;
+  }
+  .total_rate {
+    width: 450px;
+  }
+
+  .btn {
+    width: 450px;
+    margin: 0;
+  }
+
+  #del-btn {
+    font-size: 15px;
+  }
 }
-.btn > label:active {
-  box-shadow: 0px 0px 2px black;
-  border: blueviolet solid 2px;
-}
-/* -------------------------------------------------------------paging*/
-#pagingCount {
-  text-align: center;
-}
+
 #page {
-  display: inline-block;
+  text-align: center;
+  margin-bottom: 10px;
 }
