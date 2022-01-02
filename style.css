@@ -31,7 +31,7 @@ input[type="button"] {
   cursor: pointer;
 }
 input[type="button"]:hover {
-background-color: rgba(204, 200, 200, 0.425);
+  background-color: rgba(204, 200, 200, 0.425);
 }
 input[type="radio"] {
   display: none;
@@ -130,7 +130,7 @@ main > p {
   color: red;
   text-decoration: underline;
 }
-#pagingCount{
+#pagingCount {
   text-align: center;
 }
 #page {
